@@ -1,0 +1,16 @@
+<div class="chats-box">
+  <h1 class="chats-title">Chats</h1>
+  <div *ngFor="let messageData of messagesData;" >
+    <div class="chat-box" (click)="showChat(messageData.id)">
+      <div class="img-box">
+        <img [src]="messageData.icon" alt="icon">
+      </div>
+      <div class="text-box">
+        <div class="top-text">{{messageData.name}}</div>
+        <div class="bottom-text">{{messageData.messages[messageData.messages.length - 1].message}}</div>
+        <!-- {{messageData.messages | json}} -->
+      </div>
+      <div class="date-box">{{messageData.messages[messageData.messages.length - 1].creationDate | date: 'short'}}</div>
+    </div>
+    </div>
+</div>

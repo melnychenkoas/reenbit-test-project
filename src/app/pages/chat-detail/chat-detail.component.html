@@ -1,0 +1,22 @@
+<div class="chat-window">
+ <header>
+  <div class="icon-box">
+    <img [src]="currentData.icon" alt="icon">
+  </div>
+  <div class="text-name">{{currentData.name}}</div>
+ </header>
+ 
+  <div class="messages-box">
+    <div *ngFor="let message of messages">
+      <app-left-messages *ngIf="!message.isMine" [icon]="currentData.icon" [message]="message"></app-left-messages>
+      <app-right-messages *ngIf="message.isMine" [message]="message"></app-right-messages>
+    </div>
+  
+  </div>
+ 
+ <div class="input-messages-box">
+  <input type="text" class="input-messages" placeholder="Type your message" [(ngModel)]="newMessage">
+  <button id="submitNewMessage" type="button" class="send-button" (click)="submit()"></button>
+</div>
+
+</div>
